@@ -21,6 +21,10 @@ contract moneyStreaming {
         endTime = _endTime;
         referenceTime = startTime;
         coolDownTime = _coolDownTime;
+
+        IERC20_functions asset = IERC20_functions(_token);
+        asset.transferFrom(recipient, address(this), _amount);
+        
     }
 
     function calculateRate(uint256 _amount, uint256 _startTime, uint256 _endTime) public pure returns (uint256)  {
