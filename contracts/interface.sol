@@ -2,7 +2,7 @@
 
 pragma solidity >=0.5.0<0.9.0;
 
-interface IERC20_functions {
+interface IERC20_function {
     function totalSupply() external view returns (uint);
 
     function balanceOf(address account) external view returns (uint);
