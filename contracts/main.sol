@@ -15,10 +15,10 @@ contract MoneyStreaming {
     address recipient;
     address token;
     uint256 amount;
-    uint256 startTime;
-    uint256 endTime;
-    uint256 referenceTime;
-    uint256 coolDownTime;
+    uint32 startTime;
+    uint32 endTime;
+    uint32 referenceTime;
+    uint32 coolDownTime;
     bool streaming = false;
 
     struct parameters{
@@ -26,9 +26,9 @@ contract MoneyStreaming {
         address _recipient;
         address _token;
         uint256 _amount;
-        uint256 _startTime;
-        uint256 _endTime;
-        uint256 _coolDownTime;
+        uint32 _startTime;
+        uint32 _endTime;
+        uint32 _coolDownTime;
     }
 
     constructor(parameters memory input) payable {
@@ -76,7 +76,7 @@ contract MoneyStreaming {
         uint256 transferAmount = claimableAmount();
         IERC20 asset = IERC20(token);
         asset.safeTransfer(recipient, transferAmount);
-        referenceTime = block.timestamp;
+        referenceTime = uint32(block.timestamp);
         return transferAmount;
     }
 }

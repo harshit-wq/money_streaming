@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+import "hardhat-gas-reporter"
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -25,8 +26,14 @@ require("@nomiclabs/hardhat-waffle");
    throw new Error("Please set your ALCHEMY_API_KEY in a .env file");
  }
 
+
+
  module.exports = {
   solidity: "0.8.4",
+  gasReporter: {
+    currency: 'CHF',
+    gasPrice: 21
+  },
   networks: {
     hardhat: {
       forking: {
